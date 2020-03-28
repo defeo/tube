@@ -4,6 +4,10 @@
     <meta charset="utf-8">
     <title>LuTube</title>
 
+    <meta http-equiv="Content-Security-Policy"
+	  content="script-src 'unsafe-inline' *.twitch.tv *.kiwirc.org;
+		   connect-src *.twitch.tv *.kiwirc.org">
+    
     <style>
       * { padding: 0; margin: 0; }
       body {
@@ -27,7 +31,6 @@
       #irc {
 	  min-width: 320px;
 	  min-height: 400px;
-	  height: 100%;
       }
       #irc.hidden {
 	  display: none;
@@ -49,8 +52,8 @@
     </iframe>
     <div id="irc-toggle">≡</div>
     <iframe
-	id="irc"
-	src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=guest-?&theme=Mini##defeo.lu.tube">
+      id="irc"
+      src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=guest-?&theme=Mini##defeo.lu.tube">
     </iframe>
     <script>
       document.querySelector('#irc-toggle').addEventListener('click', function(e) {
