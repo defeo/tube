@@ -1,0 +1,61 @@
+<!Doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>LuTube</title>
+
+    <style>
+      * { padding: 0; margin: 0; }
+      body {
+	  display: flex;
+	  flex-flow: row nowrap;
+	  align-items: stretch;
+	  min-height: 100vh;
+      }
+      iframe { border: none; }
+      #twitch {
+	  flex: 1 0 500px;
+      }
+      #irc-toggle {
+	  flex: 0 0 40px;
+	  background-color: black;
+	  color: white;
+	  font-size: 30px;
+	  cursor: pointer;
+	  text-align: center;
+      }
+      #irc {
+	  min-width: 320px;
+	  min-height: 400px;
+	  height: 100%;
+      }
+      #irc.hidden {
+	  display: none;
+      }
+      @media screen and (orientation:portrait) {
+	  body {
+	      flex-flow: column nowrap;
+	  }
+	  #twitch { flex: 1 0 auto; }
+	  #irc { flex: 1 0 400px; }
+      }
+    </style>
+  </head>
+  <body>
+    <iframe
+      id="twitch"
+      src="https://player.twitch.tv/?channel=isogenous&parent=defeo.lu"
+      allowfullscreen="true">
+    </iframe>
+    <div id="irc-toggle">≡</div>
+    <iframe
+	id="irc"
+	src="https://kiwiirc.com/client/irc.kiwiirc.com/?nick=guest-?&theme=Mini##defeo.lu.tube">
+    </iframe>
+    <script>
+      document.querySelector('#irc-toggle').addEventListener('click', function(e) {
+	  document.querySelector('#irc').classList.toggle('hidden');
+      });
+    </script>
+  </body>
+</html>
